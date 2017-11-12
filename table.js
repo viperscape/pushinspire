@@ -19,5 +19,21 @@ function add_quote(kind, quote, id) {
         if (err) console.error(err)
     });
 }
-
 module.exports.add_quote = add_quote;
+
+
+function add_layout(layout) {
+    const params = {
+        TableName:TABLE,
+        Item: { 
+            "kind":"Layout",
+            "id": 0,
+            "kinds": layout
+        }
+    };
+
+    DB.put(params, function (err) {
+        if (err) console.error(err)
+    });
+}
+module.exports.add_layout = add_layout;
