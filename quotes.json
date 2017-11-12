@@ -1,0 +1,92 @@
+{
+    "Brave": [
+        {
+            "quote": "The supreme art of war is to subdue the enemy without fighting",
+            "person": "Sun Tzu"
+        },
+        {
+            "quote": "The fight isn't over until you win",
+            "person": "Robin Hobb"
+        },
+        {
+            "quote": "You cannot expect victory and plan for defeat",
+            "person": "Joel Osteen"
+        },
+        {
+            "quote": "It is better to be hated for what you are than to be loved for what you are not",
+            "person": "Andre Gide"
+        }
+    ],
+    "Love":[
+        {
+            "quote": "True love is born from understanding",
+            "person": "Buddha"
+        },
+        {
+            "quote": "Whenever you are confronted with an opponent. Conquer him with love",
+            "person": "Gandhi"
+        },
+        { 
+            "quote": "If in our daily life we can smile, if we can be peaceful and happy, not only we, but everyone will profit from it. This is the most basic kind of peace work",
+            "person": "Thich Nhat Hanh"
+        },
+        {
+            "quote": "When I despair, I remember that all through history the way of truth and love have always won",
+            "person": "Gandhi"
+        },
+        {
+            "quote": "Peace cannot be kept by force; it can only be achieved by understanding",
+            "person": "Albert Einstein"
+        },
+        {
+            "quote": "Darkness cannot drive out darkness: only light can do that. Hate cannot drive out hate: only love can do that.",
+            "person": "MLK Jr."
+        }
+    ],
+    "Spirit":[
+        {
+            "quote": "Dogs are our link to paradise. They don't know evil or jealousy or discontent. To sit with a dog on a hillside on a glorious afternoon is to be back in Eden, where doing nothing was not boring--it was peace",
+            "person": "Milan Kundera"
+        },
+        {
+            "quote": "Peace comes from within. Do not seek it without.",
+            "person": "Buddha"
+        },
+        {
+            "quote": "You may say I'm a dreamer, but I'm not the only one. I hope someday you'll join us. And the world will live as one.",
+            "person": "John Lennon"
+        },
+        {
+            "quote": "Don't gain the world and lose your soul, wisdom is better than silver or gold",
+            "person": "Bob Marley"
+        },
+        {
+            "quote": "Holding on to anger is like grasping a hot coal with the intent of throwing it at someone else; you are the one who gets burned.",
+            "person": "Buddha"
+        },
+        {
+            "quote": "Fighting for peace is like screwing for virginity",
+            "person": "George Carlin"
+        },
+        {
+            "quote": "Happiness is not something ready made. It comes from your own actions",
+            "person": "Dalai Lama XIV"
+        },
+        {
+            "quote": "When the mind is pure, joy follows like a shadow that never leaves",
+            "person": "Buddha"
+        },
+        {
+            "quote": "Be the change you wish to see in the world",
+            "person": "Gandhi"
+        },
+        {
+            "quote": "Be ashamed to die until you have won some victory for humanity",
+            "person": "Horace Mann"
+        },
+        {
+            "quote": "What we think, we become",
+            "person": "Buddha"
+        }        
+    ]
+}

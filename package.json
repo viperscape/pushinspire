@@ -1,0 +1,12 @@
+{
+  "name": "inspire",
+  "version": "0.1.0",
+  "main": "main.js",
+  "author": {
+    "email": "chrisfgill@gmail.com",
+    "name": "viperscape"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.149.0"
+  }
+}
