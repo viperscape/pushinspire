@@ -17,7 +17,7 @@ function get_layout (cb) {
     };
 
     DB.getItem(params, function (err, data) {
-        if (data) { cb(data.Item); }
+        if (data.Item) { cb(data.Item); }
     });
 }
 
@@ -30,13 +30,23 @@ function get_contact (id, cb) {
     };
 
     DB.getItem(params, function (err, data) {
-        if (data) { cb(data.Item); }
+        if (data.Item) { cb(data.Item); }
+        else { // debug put item
+            const params = {
+                TableName:"InspireSubs",
+                Item: {
+                    "id": id,
+                }
+            };
+            DB.putItem(params, function() {});
+        }
     });
 }
 
 exports.handler = (event, context, callback) => {
     const dblClick = (event["clickType"] == "DOUBLE");
     get_contact(event.serialNumber, function (contact) {
+        if (!contact.phone) return;
         get_layout(function (layout) {
             var pick;
             var pickn;
