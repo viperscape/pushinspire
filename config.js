@@ -1,8 +1,16 @@
 const Io = require("socket.io");
 const Table = require("./table");
 
+const app = require('express')();
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
+
 function run_server(port) {
-    const io = Io.listen(port);
+    http.listen(port);
     io.on("connection", (socket) => {
         setTimeout(function() {
             handler(socket);
@@ -12,7 +20,8 @@ function run_server(port) {
     
 
     function handler (socket) {
-        socket.io.once("add", (data) => {
+        socket.once("add", (data) => {
+            console.log("adding", data);
             if (data.phone && data.id) {
                 Table.add_contact(data.id, data.phone);
             }
@@ -20,7 +29,7 @@ function run_server(port) {
             socket.disconnect();
         });
 
-        socket.io.once("remove", (data) => {
+        socket.once("remove", (data) => {
             if (data.phone && data.id) {
                 Table.rem_contact(data.id);
             }
