@@ -11,12 +11,27 @@
             padding-top: 40px;
             padding-bottom: 40px;
         }
+
+        .hide { display: None; }
     </style>
   
     <body>
+        <div>
+            Button Serial
+            <input id="button-id" placeholder="eg: G030MD040343L2"></input>
+        </div>
+
+        <button onclick="register_begin()">Register Button</button>
+        <div class="hide" id="associate">Associate to Phone</div>
+
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io();
+            var button_id;
+
+            socket.on("id", function (button) {
+                console.log("id", button);
+            });
 
             function send (route, data) {
                 setTimeout(function() {
@@ -24,7 +39,17 @@
                 }, 1200);
             }
 
-            send("add", { phone: 12345789, id: "test" });
+            //send("add", { phone: 12345789, id: "test" });
+
+            function register_begin() {
+                var associate = function () {
+                    var ele = document.getElementById("associate");
+                    ele.classList.remove("hide");
+                    ele.onclick = associate();
+                };
+
+                button_id = document.getElementById("button-id").value;
+            }
         </script>
     </body>
 </html>

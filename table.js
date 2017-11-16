@@ -62,3 +62,15 @@ function rem_contact(id) {
     });
 }
 module.exports.rem_contact = rem_contact;
+
+function get_contact(id, cb) {
+    const params = {
+        TableName:"InspireSubs",
+        Key: { "id": id }
+    };
+
+    DB.get(params, function (err) {
+        if (data.Item) cb (data.Item);
+    });
+}
+module.exports.get_contact = get_contact;

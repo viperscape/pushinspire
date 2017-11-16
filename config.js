@@ -20,6 +20,12 @@ function run_server(port) {
     
 
     function handler (socket) {
+        socket.once("get", (id) => {
+            Table.get_contact(id, (button) => {
+                socket.emit("id", button);
+            });
+        });
+
         socket.once("add", (data) => {
             console.log("adding", data);
             if (data.phone && data.id) {
