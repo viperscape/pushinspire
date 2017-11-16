@@ -26,7 +26,7 @@ function tmp_contact (id, cb) {
         TableName:"InspireSubs",
         Item: {
             "id": id+"_",
-            "ttl": Date.now() + 3600,
+            "ttl": Math.floor((Date.now() + 900000) / 1000),
         }
     };
     DB.putItem(params, cb);
