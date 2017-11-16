@@ -21,6 +21,17 @@ function get_layout (cb) {
     });
 }
 
+function tmp_contact (id, cb) {
+    const params = {
+        TableName:"InspireSubs",
+        Item: {
+            "id": id+"_",
+            "ttl": Date.now() + 3600,
+        }
+    };
+    DB.putItem(params, cb);
+}
+
 function get_contact (id, cb) {
     const params = {
         TableName:"InspireSubs",
@@ -32,19 +43,19 @@ function get_contact (id, cb) {
     DB.getItem(params, function (err, data) {
         if (data.Item) { cb(data.Item); }
         else { // debug put item
-            const params = {
-                TableName:"InspireSubs",
-                Item: {
-                    "id": id,
-                }
-            };
-            DB.putItem(params, function() {});
+            tmp_contact(id, console.log);
         }
     });
 }
 
 exports.handler = (event, context, callback) => {
+    if (event["clickType"] == "LONG") {
+        tmp_contact(event.serialNumber, console.log);
+        return;
+    }
+    
     const dblClick = (event["clickType"] == "DOUBLE");
+    
     get_contact(event.serialNumber, function (contact) {
         if (!contact.phone) return;
         get_layout(function (layout) {
