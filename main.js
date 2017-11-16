@@ -1,6 +1,8 @@
 const Table = require("./table");
 const QUOTES = require("./quotes.json");
 
+const Config = require("./config");
+
 var layout = {};
 
 for (var n in QUOTES) {
@@ -16,3 +18,5 @@ for (var n in QUOTES) {
 }
 
 Table.add_layout(layout);
+
+Config.run_server(6990);
