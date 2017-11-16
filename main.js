@@ -1,7 +1,7 @@
 const Table = require("./table");
 const QUOTES = require("./quotes.json");
 
-const Config = require("./config");
+const Server = require("./server");
 
 var layout = {};
 
@@ -19,4 +19,4 @@ for (var n in QUOTES) {
 
 Table.add_layout(layout);
 
-Config.run_server(6990);
+Server.run_server(6990);
