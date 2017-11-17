@@ -20,27 +20,32 @@ function run_server(port) {
     
 
     function handler (socket) {
-        socket.once("get", (id) => {
-            Table.get_contact(id, (button) => {
-                socket.emit("id", button);
+        socket.on("add", (data) => {
+            Table.get_contact(data.id+"_", (_) => {
+                if (data.phone) {
+                    Table.add_contact(
+                        data.id.substr(), 
+                        data.phone,
+                        function() { 
+                            socket.emit("added");    
+                            socket.disconnect();
+                        });
+                }
+                else socket.disconnect();
             });
         });
 
-        socket.once("add", (data) => {
-            console.log("adding", data);
-            if (data.phone && data.id) {
-                Table.add_contact(data.id, data.phone);
-            }
-
-            socket.disconnect();
-        });
-
         socket.once("remove", (data) => {
-            if (data.phone && data.id) {
-                Table.rem_contact(data.id);
-            }
+            if (!data.id) socket.disconnect();
 
-            socket.disconnect();
+            Table.get_contact(data.id+"_", (_) => {
+                Table.rem_contact(
+                    data.id, 
+                    function() { 
+                        socket.emit("removed");
+                        socket.disconnect();
+                    });
+            });
         });
     }
 }

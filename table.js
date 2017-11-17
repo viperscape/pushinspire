@@ -36,7 +36,7 @@ function add_layout(layout) {
 }
 module.exports.add_layout = add_layout;
 
-function add_contact(id, phone) {
+function add_contact(id, phone, cb) {
     const params = {
         TableName:"InspireSubs",
         Item: {
@@ -46,19 +46,19 @@ function add_contact(id, phone) {
     };
 
     DB.put(params, function (err) {
-        if (err) console.error(err)
+        if (!err) cb();
     });
 }
 module.exports.add_contact = add_contact;
 
-function rem_contact(id) {
+function rem_contact(id, cb) {
     const params = {
         TableName:"InspireSubs",
         Key: { "id": id }
     };
 
     DB.delete(params, function (err) {
-        if (err) console.error(err)
+        if (!err) cb();
     });
 }
 module.exports.rem_contact = rem_contact;
@@ -70,7 +70,7 @@ function get_contact(id, cb) {
     };
 
     DB.get(params, function (err, data) {
-        if (data.Item) cb (data.Item);
+        if (data && data.Item) cb (data.Item);
     });
 }
 module.exports.get_contact = get_contact;

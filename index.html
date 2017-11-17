@@ -19,23 +19,48 @@
         <div>
             Button Serial
             <input id="button-id" placeholder="eg: G030MD040343L2"></input>
+            <br>
+            Associate to Phone
+            <input id="button-phone" placeholder="eg: +13425559870"></input>       
         </div>
 
-        <button onclick="register_begin()">Register Button</button>
-        <div class="hide" id="associate">Associate to Phone</div>
+        <button id="register-button" onclick="register_begin()">Register Button</button>
+        <button id="register-end-button" onclick="register_end()" class="hide">Remove Button</button>
 
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io();
+
+            socket.on("added", function() {
+                console.log("added!");
+            });
+
+            socket.on("removed", function() {
+                console.log("removed!");
+                localStorage.removeItem("button_phone");
+            });
+
             var button_id = localStorage.getItem("button_id");
             if (button_id) {
-                var ele = document.getElementById("button-id");
-                ele.value = button_id;
+                var b = document.getElementById("button-id");
+                b.value = button_id;
             }
 
-            socket.on("id", function (button) {
-                console.log("id", button);
-            });
+            var button_phone = localStorage.getItem("button_phone");
+            if (button_phone) {
+                var bp = document.getElementById("button-phone");
+                bp.value = button_phone;
+
+                var rb = document.getElementById("register-button");
+                rb.classList.add("hide");
+
+                var reb = document.getElementById("register-end-button");
+                reb.classList.remove("hide");
+            }
+            else {
+                var rb = document.getElementById("register-button");
+                rb.classList.remove("hide");
+            }
 
             function send (route, data) {
                 setTimeout(function() {
@@ -43,19 +68,22 @@
                 }, 1200);
             }
 
-            //send("add", { phone: 12345789, id: "test" });
-
-            function register_begin() {
-                var associate = function () {
-                    var ele = document.getElementById("associate");
-                    ele.classList.remove("hide");
-                    //ele.onclick = associate();
-                };
-
+            function set_cache() {
                 button_id = document.getElementById("button-id").value;
                 localStorage.setItem("button_id", button_id);
 
-                send("get", button_id+"_");
+                button_phone = document.getElementById("button-phone").value;
+                localStorage.setItem("button_phone", button_phone);
+            }
+
+            function register_begin() {
+                set_cache();
+                send("add", { id: button_id, phone: button_phone } );
+            }
+
+            function register_end() {
+                set_cache();
+                send("remove", { id: button_id } );
             }
         </script>
     </body>
