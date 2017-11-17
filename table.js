@@ -1,6 +1,11 @@
 const AWS = require ("aws-sdk");
+const CONFIG = require("./config.json").aws;
+
+var credentials = new AWS.SharedIniFileCredentials({profile: CONFIG.profile});
+AWS.config.credentials = credentials;
+
 const Dynamo = require("aws-sdk/clients/dynamodb");
-const DB = new Dynamo.DocumentClient({"region": "us-west-2"});
+const DB = new Dynamo.DocumentClient(CONFIG);
 
 function add_quote(kind, quote, id) {
     const params = {
