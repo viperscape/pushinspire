@@ -69,7 +69,7 @@ function get_contact(id, cb) {
         Key: { "id": id }
     };
 
-    DB.get(params, function (err) {
+    DB.get(params, function (err, data) {
         if (data.Item) cb (data.Item);
     });
 }

@@ -27,7 +27,11 @@
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io();
-            var button_id;
+            var button_id = localStorage.getItem("button_id");
+            if (button_id) {
+                var ele = document.getElementById("button-id");
+                ele.value = button_id;
+            }
 
             socket.on("id", function (button) {
                 console.log("id", button);
@@ -45,10 +49,13 @@
                 var associate = function () {
                     var ele = document.getElementById("associate");
                     ele.classList.remove("hide");
-                    ele.onclick = associate();
+                    //ele.onclick = associate();
                 };
 
                 button_id = document.getElementById("button-id").value;
+                localStorage.setItem("button_id", button_id);
+
+                send("get", button_id+"_");
             }
         </script>
     </body>
