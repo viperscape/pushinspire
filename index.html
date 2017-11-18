@@ -10,23 +10,111 @@
         body {
             padding-top: 40px;
             padding-bottom: 40px;
+            padding-left: 20px;
         }
 
         .hide { display: None; }
     </style>
   
     <body>
-        <div>
-            Button Serial
-            <input id="button-id" placeholder="eg: G030MD040343L2"></input>
-            <br>
-            Associate to Phone
-            <input id="button-phone" placeholder="eg: +13425559870"></input>       
+        <div id="menu">
+            <a onclick="menu('about')">about</a> | 
+            <a onclick="menu('help')">help</a> | 
+            <a onclick="menu('config')">configure</a> | 
+            <a onclick="menu('contact')">contact</a>
+        </div>
+        <br>
+        <div id="config" class="hide">
+            <div>
+                Button Serial
+                <input id="button-id" placeholder="eg: G030MD040343L2"></input>
+                <br>
+                Associate to Phone
+                <input id="button-phone" placeholder="eg: +13425559870"></input>       
+            </div>
+
+            <button id="register-button" onclick="register_begin()">Register Button</button>
+            <button id="register-end-button" onclick="register_end()" class="hide">Remove Button</button>
         </div>
 
-        <button id="register-button" onclick="register_begin()">Register Button</button>
-        <button id="register-end-button" onclick="register_end()" class="hide">Remove Button</button>
+        <div id="about" class="hide">
+            <p>
+                Here is a completely wireless, battery powered button that when pressed sends you
+                <br>
+                a text of inspirational quotes. Great for a daily bump on your way out the door. 
+                <br>
+                I hang mine next to my keys and click it each morning for a nice message, giving me 
+                <br>
+                something to think about as I start my day.
+            </p>
+            <img src="http://pushinspire.com/img/pushinspire-button.jpg" width="200px"/>
+            <img src="http://pushinspire.com/img/pushinspire-example.png" width="200px"/>
+            <p>Have a button, ready to get setup? Head over to the <a href="#" onclick="menu('help')">help section</a></p>
+        </div>
+        <div id="help" class="hide">
+            <p>Steps to configure your button</p>
+            <p>
+                1. Connect your button to your home WiFi
+                <br>
+                2. Associate your phone number to your button
+            </p>
+            <p>Firstly, download the AWS IoT WiFi app onto your phone</p>
+            <img src="http://pushinspire.com/img/aws-iot-wifi.jpg" width="400px"/>
+            <br>
+            Get it on 
+            <a href="https://play.google.com/store/apps/details?id=com.amazonaws.buttonwifi">Google Play
+                <!--<img src="https://www.gstatic.com/android/market_images/web/play_prism_hlock_2x.png"/ alt="Google Play" width="150px">-->
+            </a>
+             or 
+            <a href="https://itunes.apple.com/us/app/aws-iot-button-wi-fi/id1215104228">iTunes App Store
+                <!--<img src="https://www.apple.com/global/elements/itunesmodule/facebook_appstore_icon.png"/ alt="iTunes App Store" width="150px">-->
+            </a>
+            <br>
+            <p>Then follow the steps in the app to setup for your WiFi network</p>
+            <p>
+                1. Push your button for six seconds, it will start blinking blue.
+                <br>
+                2. Open the AWS IoT WiFi app and start the steps.
+                <br>
+                3. Use the app to scan the barcode on the box the button came in.
+                <br>
+                4. Select our WiFi from the list.
+                <br>
+                5. Enter in your WiFi password, click the Eye icon to the right 
+                <br>
+                &nbsp &nbsp to show the password and make sure it is accurate.
+            </p>
+            <img src="http://pushinspire.com/img/pushinspire-setup.png" width="400px"/>
+            <br>
+            <br>
+            <p>Once finished, head over to <a onclick="menu('config');" href="#">configure</a> to associate your phone's number.</p>
+        </div>
 
+        <div id="contact" class="hide">
+            <p>Email us for support at <a href="mailto:info@pushinspire.com">info@pushinspire.com</a></p>
+            <p>
+                We will be glad to help you with any steps you are having trouble with!
+                <br>
+                Don't hesitate to reach out for assistance!
+            </p>
+        </div>
+        
+        <script>
+            function menu(id) {
+                var items = ["config", "about", "help", "contact"];
+
+                for (var n in items) { 
+                    var ele = document.getElementById(items[n]);
+                    ele.classList.add("hide"); 
+                }
+
+                
+                var ele = document.getElementById(id);
+                ele.classList.remove("hide"); 
+            }
+            menu("help");
+        </script>
+        
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io();
