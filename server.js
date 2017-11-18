@@ -35,7 +35,7 @@ function run_server(port) {
             });
         });
 
-        socket.once("remove", (data) => {
+        socket.on("remove", (data) => {
             if (!data.id) socket.disconnect();
 
             Table.get_contact(data.id+"_", (_) => {
