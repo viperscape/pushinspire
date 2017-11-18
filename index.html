@@ -122,12 +122,15 @@
             var socket = io();
 
             socket.on("added", function() {
-                console.log("added!");
+                var ele = document.getElementById("config");
+                ele.innerHTML = "<p>Button has been successfully configured!</p>"
             });
 
             socket.on("removed", function() {
-                console.log("removed!");
                 localStorage.removeItem("button_phone");
+                
+                var ele = document.getElementById("config");
+                ele.innerHTML = "<p>Button has been successfully unconfigured!</p>"
             });
 
             var button_id = localStorage.getItem("button_id");
