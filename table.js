@@ -75,7 +75,7 @@ function get_contact(id, cb) {
     };
 
     DB.get(params, function (err, data) {
-        if (data && data.Item) cb (data.Item);
+        if (data && data.Item) cb ();
     });
 }
 module.exports.get_contact = get_contact;
