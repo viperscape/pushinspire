@@ -18,7 +18,7 @@ function add_quote(kind, quote, id) {
         }
     };
 
-    DB.put(params, function (err) {
+    DB.put(params, function (err, data) {
         if (err) console.error(err)
     });
 }
@@ -35,7 +35,7 @@ function add_layout(layout) {
         }
     };
 
-    DB.put(params, function (err) {
+    DB.put(params, function (err, data) {
         if (err) console.error(err)
     });
 }
@@ -50,7 +50,7 @@ function add_contact(id, phone, cb) {
         }
     };
 
-    DB.put(params, function (err) {
+    DB.put(params, (err, data) => {
         if (!err) cb();
     });
 }
@@ -62,7 +62,7 @@ function rem_contact(id, cb) {
         Key: { "id": id }
     };
 
-    DB.delete(params, function (err) {
+    DB.delete(params, (err, data) => {
         if (!err) cb();
     });
 }
@@ -74,7 +74,7 @@ function get_contact(id, cb) {
         Key: { "id": id }
     };
 
-    DB.get(params, function (err, data) {
+    DB.get(params, (err, data) => {
         if (data && data.Item) cb ();
     });
 }

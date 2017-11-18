@@ -26,7 +26,7 @@ function run_server(port) {
                     Table.add_contact(
                         data.id.substr(), 
                         data.phone,
-                        function() { 
+                        () => { 
                             socket.emit("added");    
                             socket.disconnect();
                         });
@@ -41,7 +41,7 @@ function run_server(port) {
             Table.get_contact(data.id+"_", (_) => {
                 Table.rem_contact(
                     data.id, 
-                    function() { 
+                    () => { 
                         socket.emit("removed");
                         socket.disconnect();
                     });
