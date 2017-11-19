@@ -15,6 +15,50 @@
         {
             "quote": "It is better to be hated for what you are than to be loved for what you are not",
             "person": "Andre Gide"
+        },
+        {
+            "quote": "Accept responsibility for your life. Know that it is you who will get you where you want to go, no one else.",
+            "person": "Les Brown"
+        },
+        {
+            "quote": "Good things come to those who wait… greater things come to those who get off their ass and do anything to make it happen.",
+            "person": "unknown"
+        },
+        {
+            "quote": "In order to succeed, your desire for success should be greater than your fear of failure.",
+            "person": "Bill Cosby"
+        },
+        {
+            "quote": "Dont be afraid to stand for what you believe in, even if that means standing alone.",
+            "person": "Andy Biersack"
+        },
+        {
+            "quote": "I am thankful for all of those who said NO to me. Its because of them I’m doing it myself.",
+            "person": "Albert Einstein"
+        },
+        {
+            "quote": "The only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle.",
+            "person": "Steve Jobs"
+        },
+        {
+            "quote": "Don’t worry about failures, worry about the chances you miss when you don’t even try",
+            "person": "Jack Canfield"
+        },
+        {
+            "quote": "Build your own dreams, or someone else will hire you to build theirs.",
+            "person": "Farrah Gray"
+        },
+        {
+            "quote": "Self confidence is the most attractive quality a person can have. How can anyone see how awesome you are if you can’t see it yourself?",
+            "person": "unknown"
+        },
+        {
+            "quote": "The most difficult thing is the decision to act, the rest is merely tenacity.",
+            "person": "Amelia Earhart"
+        },
+        {
+            "quote": "Twenty years from now you will be more disappointed by the things that you didn’t do than by the ones you did do, so throw off the bowlines, sail away from safe harbor, catch the trade winds in your sails.  Explore, Dream, Discover.",
+            "person": "Mark Twain"
         }
     ],
     "Love":[
@@ -44,6 +88,14 @@
         }
     ],
     "Spirit":[
+        {
+            "quote": "Strive not to be a success, but rather to be of value.",
+            "person": "Albert Einstein"
+        },
+        {
+            "quote": "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.",
+            "person": "Robert Frost"
+        },
         {
             "quote": "Dogs are our link to paradise. They don't know evil or jealousy or discontent. To sit with a dog on a hillside on a glorious afternoon is to be back in Eden, where doing nothing was not boring--it was peace",
             "person": "Milan Kundera"
@@ -87,6 +139,22 @@
         {
             "quote": "What we think, we become",
             "person": "Buddha"
-        }        
+        },
+        {
+            "quote": "Life isn't about getting and having, it's about giving and being.",
+            "person": "Kevin Kruse"
+        },
+        {
+            "quote": "We become what we think about.",
+            "person": "Earl Nightingale"
+        },
+        {
+            "quote": "Life is about making an impact, not making in income",
+            "person": "Kevin Kruse"
+        },
+        {
+            "quote": "The best time to plant a tree was 20 years ago. The second best time is now.",
+            "person": "Chinese proverb"
+        }
     ]
 }
